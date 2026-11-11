@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    /* LIGHT MODE PALETTE */
+    /* LIGHT MODE PALETTE (PRD v3.1 Specification) */
     --brand-navy: #243B80;
     --brand-blue: #4169E1;
     --blue-support: #3153B5;
@@ -15,19 +15,19 @@
     --muted-slate: #778198;
     --border-color: #E7EAF3;
 
-    --bg-main: #F8F9FD;
+    --bg-main: #F4F6FC;
     --surface: #FFFFFF;
     --surface-elevated: #FFFFFF;
 
     --text-primary: #172033;
-    --text-secondary: #5A657D;
-    --text-muted: #778198;
+    --text-secondary: #52607D;
+    --text-muted: #7E8B9F;
 
     --brand-tint: #EEF2FF;
   }
 
   .dark {
-    /* DARK MODE PALETTE */
+    /* DARK MODE PALETTE (PRD v3.1 Specification) */
     --bg-main: #101728;
     --surface: #182238;
     --surface-elevated: #202C45;
@@ -40,7 +40,7 @@
     --cloud-white: #101728;
     --deep-charcoal: #F0F3FC;
     --muted-slate: #A1ADC4;
-    --border-color: #2B3852;
+    --border-color: #27344D;
 
     --text-primary: #F0F3FC;
     --text-secondary: #A1ADC4;
@@ -57,29 +57,43 @@
     background-color: var(--bg-main);
     color: var(--text-primary);
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    letter-spacing: -0.011em;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: -0.025em;
   }
 }
 
-/* Custom scrollbars for clean SaaS feel */
+/* Glassmorphism & Micro-elevation utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.dark .glass-panel {
+  background: rgba(24, 34, 56, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Custom premium scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(119, 129, 152, 0.3);
+  background: rgba(119, 129, 152, 0.25);
   border-radius: 9999px;
 }
 .dark ::-webkit-scrollbar-thumb {
-  background: rgba(161, 173, 196, 0.25);
+  background: rgba(161, 173, 196, 0.2);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(119, 129, 152, 0.5);
+  background: rgba(119, 129, 152, 0.45);
 }
-

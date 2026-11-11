@@ -14,7 +14,6 @@ import {
   Settings,
   ChevronLeft,
   ChevronRight,
-  Sparkles,
 } from 'lucide-react';
 
 interface NavItem {
@@ -36,22 +35,22 @@ export const Sidebar: React.FC = () => {
   } = useApp();
 
   const workspaceNav: NavItem[] = [
-    { id: 'overview', label: 'Overview', icon: <LayoutDashboard className="w-5 h-5 shrink-0" /> },
-    { id: 'activities', label: 'My Activities', icon: <Briefcase className="w-5 h-5 shrink-0" /> },
-    { id: 'income-expenses', label: 'Income & Expenses', icon: <ArrowDownUp className="w-5 h-5 shrink-0" /> },
-    { id: 'schedule', label: 'Workload & Schedule', icon: <CalendarDays className="w-5 h-5 shrink-0" /> },
-    { id: 'financial-planning', label: 'Financial Planning', icon: <Target className="w-5 h-5 shrink-0" /> },
+    { id: 'overview', label: 'Overview', icon: <LayoutDashboard className="w-4 h-4 shrink-0" /> },
+    { id: 'activities', label: 'My Activities', icon: <Briefcase className="w-4 h-4 shrink-0" /> },
+    { id: 'income-expenses', label: 'Income & Expenses', icon: <ArrowDownUp className="w-4 h-4 shrink-0" /> },
+    { id: 'schedule', label: 'Workload & Schedule', icon: <CalendarDays className="w-4 h-4 shrink-0" /> },
+    { id: 'financial-planning', label: 'Financial Planning', icon: <Target className="w-4 h-4 shrink-0" /> },
   ];
 
   const intelligenceNav: NavItem[] = [
-    { id: 'ai-assistant', label: 'AI Assistant', icon: <Bot className="w-5 h-5 shrink-0" />, badge: 'Smart' },
-    { id: 'documents', label: 'My Documents', icon: <FileText className="w-5 h-5 shrink-0" /> },
-    { id: 'analytics', label: 'Analytics & Reports', icon: <BarChart3 className="w-5 h-5 shrink-0" /> },
+    { id: 'ai-assistant', label: 'AI Assistant', icon: <Bot className="w-4 h-4 shrink-0" />, badge: 'AI' },
+    { id: 'documents', label: 'My Documents', icon: <FileText className="w-4 h-4 shrink-0" /> },
+    { id: 'analytics', label: 'Analytics & Reports', icon: <BarChart3 className="w-4 h-4 shrink-0" /> },
   ];
 
   const accountNav: NavItem[] = [
-    { id: 'profile', label: 'Profile', icon: <User className="w-5 h-5 shrink-0" /> },
-    { id: 'settings', label: 'Settings', icon: <Settings className="w-5 h-5 shrink-0" /> },
+    { id: 'profile', label: 'Profile', icon: <User className="w-4 h-4 shrink-0" /> },
+    { id: 'settings', label: 'Settings', icon: <Settings className="w-4 h-4 shrink-0" /> },
   ];
 
   const handleNavClick = (id: string) => {
@@ -60,13 +59,13 @@ export const Sidebar: React.FC = () => {
   };
 
   const renderNavGroup = (title: string, items: NavItem[]) => (
-    <div className="py-2.5">
+    <div className="py-2">
       {!isSidebarCollapsed && (
-        <h4 className="px-3.5 mb-2 text-[10px] font-bold uppercase tracking-wider text-content-muted/80">
+        <h4 className="px-3.5 mb-1.5 text-[10px] font-bold uppercase tracking-wider text-content-muted">
           {title}
         </h4>
       )}
-      <ul className="space-y-1">
+      <ul className="space-y-0.5">
         {items.map((item) => {
           const isActive = activePage === item.id;
           return (
@@ -75,28 +74,23 @@ export const Sidebar: React.FC = () => {
                 onClick={() => handleNavClick(item.id)}
                 title={isSidebarCollapsed ? item.label : undefined}
                 className={cn(
-                  'w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 text-left relative group',
+                  'w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-150 text-left relative group',
                   isActive
                     ? 'bg-brand-navy text-white shadow-sm dark:bg-brand-blue dark:text-surface-bg font-semibold'
                     : 'text-content-secondary hover:text-content-primary hover:bg-black/5 dark:hover:bg-white/5',
                   isSidebarCollapsed && 'justify-center px-2'
                 )}
               >
-                {/* Active indicator bar */}
-                {isActive && !isSidebarCollapsed && (
-                  <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-6 bg-white dark:bg-surface-bg rounded-r-full" />
-                )}
-
                 <span className={cn('transition-transform group-hover:scale-105', isActive && 'text-white dark:text-surface-bg')}>
                   {item.icon}
                 </span>
 
                 {!isSidebarCollapsed && (
-                  <span className="flex-1 truncate tracking-tight">{item.label}</span>
+                  <span className="flex-1 truncate">{item.label}</span>
                 )}
 
                 {!isSidebarCollapsed && item.badge && (
-                  <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded-full bg-brand-soft/20 text-brand-blue dark:text-brand-soft border border-brand-soft/40">
+                  <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded-full bg-brand-soft/20 text-brand-blue dark:text-brand-soft border border-brand-soft/30">
                     {item.badge}
                   </span>
                 )}
@@ -114,20 +108,20 @@ export const Sidebar: React.FC = () => {
       <div className={cn('h-16 flex items-center px-4 border-b border-border justify-between shrink-0', isSidebarCollapsed && 'justify-center px-2')}>
         {!isSidebarCollapsed ? (
           <div className="flex items-center gap-3 overflow-hidden">
-            <div className="w-9 h-9 rounded-xl bg-brand-navy dark:bg-brand-blue flex items-center justify-center text-white shadow-sm font-heading font-extrabold text-lg shrink-0">
+            <div className="w-8 h-8 rounded-xl bg-brand-navy dark:bg-brand-blue flex items-center justify-center text-white shadow-sm font-heading font-extrabold text-base shrink-0">
               M
             </div>
             <div className="flex flex-col leading-none">
-              <span className="font-heading font-extrabold text-base tracking-tight text-content-primary">
+              <span className="font-heading font-extrabold text-sm tracking-tight text-content-primary">
                 MANAJER<span className="text-brand-blue">KAMU</span>
               </span>
-              <span className="text-[10px] text-content-muted tracking-wider uppercase font-semibold mt-1">
+              <span className="text-[9px] text-content-muted tracking-wider uppercase font-semibold mt-1">
                 Integrated Work OS
               </span>
             </div>
           </div>
         ) : (
-          <div className="w-9 h-9 rounded-xl bg-brand-navy dark:bg-brand-blue flex items-center justify-center text-white shadow-sm font-heading font-extrabold text-lg">
+          <div className="w-8 h-8 rounded-xl bg-brand-navy dark:bg-brand-blue flex items-center justify-center text-white shadow-sm font-heading font-extrabold text-base">
             M
           </div>
         )}
@@ -138,45 +132,43 @@ export const Sidebar: React.FC = () => {
           className="hidden lg:flex p-1.5 rounded-lg text-content-muted hover:text-content-primary hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
           title={isSidebarCollapsed ? 'Buka Sidebar' : 'Ciutkan Sidebar'}
         >
-          {isSidebarCollapsed ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
+          {isSidebarCollapsed ? (
+            <ChevronRight className="w-4 h-4" />
+          ) : (
+            <ChevronLeft className="w-4 h-4" />
+          )}
         </button>
       </div>
 
-      {/* Nav Link Groups */}
-      <div className="flex-1 overflow-y-auto px-3 py-2 divide-y divide-border/60">
+      {/* Nav Menu Items */}
+      <div className="flex-1 overflow-y-auto px-2.5 py-3 divide-y divide-border/40">
         {renderNavGroup('Workspace', workspaceNav)}
         {renderNavGroup('Intelligence', intelligenceNav)}
         {renderNavGroup('Account', accountNav)}
       </div>
 
-      {/* Pro Badge Feature / Assistant Teaser */}
-      {!isSidebarCollapsed && (
-        <div className="px-3 pb-3">
-          <div className="p-3 rounded-xl bg-brand-mist dark:bg-brand-tint border border-brand-soft/40 flex items-start gap-3">
-            <div className="p-1.5 rounded-lg bg-brand-navy text-white dark:bg-brand-blue dark:text-surface-bg shrink-0">
-              <Sparkles className="w-4 h-4" />
-            </div>
+      {/* Bottom User Card / Status */}
+      <div className="p-3 border-t border-border shrink-0 bg-surface-elevated/40">
+        {!isSidebarCollapsed ? (
+          <div className="flex items-center gap-2.5">
+            <img
+              src={user.avatar}
+              alt={user.name}
+              className="w-8 h-8 rounded-full object-cover ring-2 ring-brand-blue/20 shrink-0"
+            />
             <div className="flex-1 min-w-0">
-              <p className="text-xs font-bold text-brand-navy dark:text-brand-blue">One Integrated System</p>
-              <p className="text-[11px] text-content-secondary mt-0.5 line-clamp-2">
-                Semua pekerjaan, invoice, dan jadwal tersinkronisasi otomatis.
-              </p>
+              <p className="text-xs font-bold text-content-primary truncate">{user.name}</p>
+              <p className="text-[10px] text-content-muted truncate">{user.title}</p>
             </div>
           </div>
-        </div>
-      )}
-
-      {/* User Section Bottom */}
-      <div className={cn('p-3 border-t border-border shrink-0 flex items-center gap-3', isSidebarCollapsed && 'justify-center p-2')}>
-        <img
-          src={user.avatar}
-          alt={user.name}
-          className="w-9 h-9 rounded-full object-cover border-2 border-brand-soft shrink-0"
-        />
-        {!isSidebarCollapsed && (
-          <div className="flex-1 min-w-0">
-            <p className="text-sm font-semibold text-content-primary truncate leading-tight">{user.name}</p>
-            <p className="text-xs text-content-muted truncate">{user.title}</p>
+        ) : (
+          <div className="flex justify-center">
+            <img
+              src={user.avatar}
+              alt={user.name}
+              className="w-7 h-7 rounded-full object-cover ring-2 ring-brand-blue/20"
+              title={user.name}
+            />
           </div>
         )}
       </div>
@@ -185,29 +177,33 @@ export const Sidebar: React.FC = () => {
 
   return (
     <>
-      {/* Desktop Persistent Sidebar */}
+      {/* Desktop Sticky Sidebar */}
       <aside
         className={cn(
-          'hidden lg:block sticky top-0 h-screen transition-all duration-300 z-30 shrink-0',
-          isSidebarCollapsed ? 'w-20' : 'w-64'
+          'hidden lg:flex flex-col shrink-0 transition-all duration-200 z-30 sticky top-0 h-screen',
+          isSidebarCollapsed ? 'w-16' : 'w-64'
         )}
       >
         {sidebarContent}
       </aside>
 
-      {/* Mobile Drawer Overlay */}
+      {/* Mobile Drawer Backdrop */}
       {isMobileSidebarOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden">
-          <div
-            className="fixed inset-0 bg-deep-charcoal/50 backdrop-blur-sm transition-opacity"
-            onClick={() => setIsMobileSidebarOpen(false)}
-          />
-          <div className="fixed inset-y-0 left-0 w-72 bg-surface shadow-2xl z-10 animate-in slide-in-from-left duration-200">
-            {sidebarContent}
-          </div>
-        </div>
+        <div
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden backdrop-blur-xs transition-opacity"
+          onClick={() => setIsMobileSidebarOpen(false)}
+        />
       )}
+
+      {/* Mobile Slide-in Drawer */}
+      <aside
+        className={cn(
+          'fixed inset-y-0 left-0 z-50 w-72 lg:hidden transition-transform duration-200 ease-in-out shadow-2xl',
+          isMobileSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+        )}
+      >
+        {sidebarContent}
+      </aside>
     </>
   );
 };
-

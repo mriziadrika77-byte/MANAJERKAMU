@@ -56,3 +56,4 @@ npm run preview
 ## 📄 Keterbukaan Teknis (PRD Section 17)
 
 MANAJERKAMU adalah prototipe web interaktif. Seluruh data bersifat ilustratif untuk mendemonstrasikan kapabilitas pengelolaan pekerjaan terintegrasi secara aman di dalam peramban lokal tanpa server database eksternal. Respon AI Assistant merupakan simulasi analisis berbasis aturan frontend.
+
