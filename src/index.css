@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    /* LIGHT MODE PALETTE (PRD v3.1 Specification) */
+    /* LIGHT MODE PALETTE (PRD v3.1 & PRD UI/UX v2.0 exact tokens) */
     --brand-navy: #243B80;
     --brand-blue: #4169E1;
     --blue-support: #3153B5;
@@ -14,6 +14,12 @@
     --deep-charcoal: #172033;
     --muted-slate: #778198;
     --border-color: #E7EAF3;
+
+    /* Semantic light */
+    --color-success: #16A477;
+    --color-warning: #D99736;
+    --color-danger: #DC626F;
+    --color-info: #6485C7;
 
     --bg-main: #F4F6FC;
     --surface: #FFFFFF;
@@ -27,7 +33,7 @@
   }
 
   .dark {
-    /* DARK MODE PALETTE (PRD v3.1 Specification) */
+    /* DARK MODE PALETTE (PRD v3.1 & PRD UI/UX v2.0 exact tokens) */
     --bg-main: #101728;
     --surface: #182238;
     --surface-elevated: #202C45;
@@ -40,7 +46,13 @@
     --cloud-white: #101728;
     --deep-charcoal: #F0F3FC;
     --muted-slate: #A1ADC4;
-    --border-color: #27344D;
+    --border-color: #2B3852;
+
+    /* Semantic dark */
+    --color-success: #52C69C;
+    --color-warning: #E8B45F;
+    --color-danger: #EF8992;
+    --color-info: #8EABE8;
 
     --text-primary: #F0F3FC;
     --text-secondary: #A1ADC4;
@@ -56,8 +68,9 @@
   body {
     background-color: var(--bg-main);
     color: var(--text-primary);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     letter-spacing: -0.011em;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -66,17 +79,9 @@
   }
 }
 
-/* Glassmorphism & Micro-elevation utilities */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-.dark .glass-panel {
-  background: rgba(24, 34, 56, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+/* Tabular figures utility for perfect numerical alignment in tables and financial cards */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
 }
 
 /* Custom premium scrollbar */
